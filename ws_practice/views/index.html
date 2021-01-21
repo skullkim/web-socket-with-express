@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //make webSocket instance
+        const webSocket = new WebSocket("ws://localhost:8080");
+        //onopen event will occure when client connect with server
+        webSocket.onopen = () => console.log('success to connect web socket with server');
+        //onmessage event will occure when server send message to client
+        webSocket.onmessage = (event) => {
+            console.log(event.data);
+            webSocket.send('send message from client to server');
+        }
+    </script>
+</body>
+</html>
